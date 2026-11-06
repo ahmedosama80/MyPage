@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What a SCADA FAT Review Should Catch | Ahmed Osama Mohamed</title>
+<meta name="description" content="A practical guide to SCADA Factory Acceptance Test (FAT) review: what to check in the test procedure, the evidence and the results before a system ships to site.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="96x96" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#12355b">
+<link rel="canonical" href="https://ahmedomohamed.com/articles/scada-fat-review/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Ahmed Osama Mohamed">
+<meta property="og:title" content="What a SCADA FAT Review Should Catch">
+<meta property="og:description" content="A practical guide to SCADA Factory Acceptance Test (FAT) review: what to check before a system ships to site.">
+<meta property="og:url" content="https://ahmedomohamed.com/articles/scada-fat-review/">
+<meta property="og:image" content="https://ahmedomohamed.com/images/easyfw-og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What a SCADA FAT Review Should Catch",
+  "description": "A practical guide to SCADA Factory Acceptance Test (FAT) review.",
+  "datePublished": "2026-11-06",
+  "dateModified": "2026-11-06",
+  "mainEntityOfPage": "https://ahmedomohamed.com/articles/scada-fat-review/",
+  "author": { "@type": "Person", "name": "Ahmed Osama Mohamed", "url": "https://ahmedomohamed.com/" }
+}
+</script>
+<style>
+  body { font-family: Georgia, "Times New Roman", serif; max-width: 760px; margin: 0 auto; padding: 24px 20px 48px; color: #1b1f24; background: #ffffff; line-height: 1.65; }
+  h1 { font-size: 2em; margin: 8px 0; color: #12355b; }
+  h2 { color: #12355b; border-bottom: 1px solid #ccd3db; padding-bottom: 4px; margin-top: 32px; }
+  a { color: #12355b; }
+  .meta { color: #666; font-size: 0.9em; }
+  footer { margin-top: 48px; font-size: 0.85em; color: #666; border-top: 1px solid #ccd3db; padding-top: 12px; }
+</style>
+</head>
+<body>
+<p><a href="/">&larr; Ahmed Osama Mohamed</a></p>
+<main>
+<article>
+  <h1>What a SCADA FAT Review Should Catch</h1>
+  <p class="meta">By Ahmed Osama Mohamed &middot; November 2026</p>
+
+  <p>A Factory Acceptance Test (FAT) is the last controlled chance to find problems in a SCADA system before it reaches site, where every fix costs more time and carries more operational risk. A FAT review is an independent check that the test is designed to find those problems, and that the evidence proves they are absent.</p>
+
+  <h2>1. Does the test procedure trace to the specification?</h2>
+  <p>Every requirement in the Functional Design Specification (FDS) and Detailed Design Specification (DDS) should map to at least one test step. Look for requirements with no test, tests that reference no requirement, and vague pass criteria such as &ldquo;system operates correctly&rdquo;. A traceability matrix is the quickest way to expose gaps.</p>
+
+  <h2>2. Is the test environment representative?</h2>
+  <p>Check which parts of the system are real and which are simulated. Simulated field I/O is normal at FAT, but the review should confirm that the simulation covers abnormal conditions (bad quality, comms loss, out-of-range values), not only the happy path. Software versions and configuration under test must match what will be shipped.</p>
+
+  <h2>3. Are failure and recovery cases covered?</h2>
+  <ul>
+    <li>Server, network and communication-link failover, and the time to recover.</li>
+    <li>Loss and restoration of RTU or PLC communications, including data catch-up.</li>
+    <li>Alarm behaviour under load, such as alarm floods, acknowledgement, shelving and priority handling.</li>
+    <li>Historian gaps and back-filling after an outage.</li>
+  </ul>
+
+  <h2>4. Are performance requirements actually measured?</h2>
+  <p>Display call-up times, update rates, polling cycles and tag capacity should be measured against the specified numbers, with the load stated. &ldquo;Looked fast&rdquo; is not evidence.</p>
+
+  <h2>5. Is cybersecurity part of the test?</h2>
+  <p>Confirm that user roles, access rights, logging and network segmentation are tested as designed, and that default credentials and unused services are removed. OT security is far cheaper to fix on the factory floor than after commissioning.</p>
+
+  <h2>6. Is the evidence good enough?</h2>
+  <p>Each result should be recorded with who ran it, when, on which software version, and with the actual observed values. Failed tests need a tracked punch item with an owner and a retest, not a note saying &ldquo;to be fixed&rdquo;. Open items should be classified by their effect on safety and operation, so that it is clear what blocks shipment.</p>
+
+  <h2>7. Will it carry through to IFAT and SAT?</h2>
+  <p>A good FAT hands over cleanly. Test cases that cannot be repeated on site, or interfaces that were never tested with the real counterpart system, are exactly the items that surface later at the Integrated FAT (IFAT) or Site Acceptance Test (SAT). A reviewer should flag them early.</p>
+
+  <h2>Need an independent review?</h2>
+  <p>I review FDS, DDS, FAT, IFAT and SAT documentation for owners, EPC contractors and integrators. See the <a href="/#services">services</a> or <a href="/#contact">get in touch</a>.</p>
+</article>
+</main>
+<footer>&copy; 2026 Ahmed Osama. All rights reserved.</footer>
+</body>
+</html>
